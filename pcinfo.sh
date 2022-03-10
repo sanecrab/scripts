@@ -80,12 +80,23 @@ echo "Plataforma       :" $(uname -p)
 #Sección Sistema Fin
 
 #Sección Base Board Inicio
+manufacturer=$(/usr/sbin/dmidecode --type 2 | grep "Manufacturer:" | cut -d ':' -f 2)
+if [ -z $manufacturer ]
+then
+    manufacturer=$(/usr/sbin/dmidecode --type 1 | grep "Manufacturer:" | cut -d ':' -f 2)
+fi
+model=$(/usr/sbin/dmidecode --type 2 | grep "Product Name:" | cut -d ':' -f 2)
+if [ -z $model ]
+then
+    model=$(/usr/sbin/dmidecode --type 1 | grep "Product Name:" | cut -d ':' -f 2)
+fi
+
 echo ""
 echo "--------------------"
 echo "---- Placa Base ----"
 echo "--------------------"
-echo "Fabricante:" $(/usr/sbin/dmidecode --type 2 | grep "Manufacturer:" | cut -d ':' -f 2)
-echo "Modelo    :" $(/usr/sbin/dmidecode --type 2 | grep "Product Name:" | cut -d ':' -f 2)
+echo "Fabricante:" $manufacturer
+echo "Modelo    :" $model
 #Sección Base Board Fin
 
 #Sección CPU Inicio
@@ -187,3 +198,4 @@ echo "-------------"
 #SSDDB         223G
 
 #Sección HDD Fin
+
