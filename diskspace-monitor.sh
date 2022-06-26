@@ -4,10 +4,10 @@ MOUNT_POINTS=("/" "/var/run/media/DATA")
 ALERT_PERCENTS=(10 60)
 warns=0
 
-from="luiscarlosgonzalezbarcenas@gmail.com"
-recipients="luiscarlosgonzalezbarcenas@gmail.com,user@mail.com"
-mail_from="From: LuisCarlos<$from>"
-mail_to="To: LuisCarlos<luiscarlosgonzalezbarcenas@gmail.com>"
+from="fromaccount@gmail.com"
+recipients="toaccount@gmail.com,user@mail.com"
+mail_from="From: FROM<$from>"
+mail_to="To: TO<toaccount@gmail.com>"
 mail_subject="Subject:Alerta HDD - Servidor($(hostname))"
 mail_body="\nServidor:\n$(hostname)\n\nFecha/Hora:$(date)\n\n"
 
